@@ -1,2 +1,33 @@
 <div></div>
 <h4>Hello, <%= current_user.first_name %>.</h4>
+
+<!-- <button>Add Job</button>
+<div id="job-input">
+  <input type='text' name='company' placeholder="Company Name" />
+  <input type='text' name='position' placeholder="Job Title" />
+  <input type='text' name='location' placeholder="Location" />
+</div> -->
+<% p "+" * 100 %>
+<% p current_user.jobs %>
+<%= form_for [current_user, current_user.jobs.build] do |f| %>
+  <%= f.text_field :company, placeholder: "Company" %>
+  <%= f.text_field :position, placeholder: "Position" %>
+  <%= f.text_field :location, placeholder: "Location" %>
+  <%= f.submit "Add Job" %>
+<% end %>
+
+<table class="table">
+  <tr><th>Interested</th><th>Applied</th><th>Hot</th><th>Cold</th></tr>
+
+    <% @jobs.each do |job| %>
+      <tr>
+        <td>
+          <div class="job-info">
+            <p><%= job.company %></p>
+            <p><%= job.position %></p>
+            <p><%= job.location %></p>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+</table>
