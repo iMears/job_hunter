@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150310051512) do
     t.string   "job_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category",   default: "interested"
   end
 
   create_table "notes", force: true do |t|
