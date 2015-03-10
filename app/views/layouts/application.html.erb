@@ -9,11 +9,16 @@
 </head>
 <body>
   <nav class="navbar navbar-inverse">
-  <ul id="nav-ul ">
-    <li class="nav-txt">JobHunter</li>
-  </ul>
+  <div id="nav-ul">
+    <p class="nav-txt text-center">JobHunter</p>
+    <% if user_signed_in? %>
+      <p class="nav-txt pull-right"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></p>
+    <% end %>
+  </div>
   </nav>
-  <p class="notice"><%= notice %></p>
+  <% p "-" * 80 %>
+  <% p notice %>
+  <% p "-" * 80 %>
   <p class="alert"><%= alert %></p>
 
   <%= yield %>
