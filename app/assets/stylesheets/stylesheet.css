@@ -14,3 +14,7 @@
   margin: 0 auto;
   width: 200px;
 }
+
+.form-control {
+  margin: 5px 0;
+}
