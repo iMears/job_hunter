@@ -1,0 +1,6 @@
+<h1><%= @job.company %></h1>
+<div><%= link_to 'Edit', edit_user_job_path(current_user, @job), class: "btn btn-xs btn-warning" %></div>
+<div><%= link_to 'Delete', user_job_path(current_user, @job), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger" %></div>
+
+<%= @job.location %>
+<%= @job.position %>
