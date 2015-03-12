@@ -9,8 +9,8 @@
 </head>
 <body>
   <nav class="navbar navbar-inverse">
-  <div id="nav-ul">
-    <p class="nav-txt text-center">JobHunter</p>
+  <div id="nav">
+    <div class="logo-container"><%= image_tag "jobHunterLogo.png", class: "jh-logo" %></div>
     <% if user_signed_in? %>
       <p class="nav-txt pull-right"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></p>
     <% end %>

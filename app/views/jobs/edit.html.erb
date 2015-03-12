@@ -1,6 +1,6 @@
 <%= form_for [current_user, current_user.jobs.build], url: {action: 'update'}, html: {method: 'put'} do |f| %>
   <%= f.text_field :company, value: "#{@job.company}" %>
-  <%= f.text_field :position, value: "#{@job.position}" %>
   <%= f.text_field :location, value: "#{@job.location}" %>
+  <%= f.text_field :position, value: "#{@job.position}" %>
   <%= f.submit "Edit Job" %>
 <% end %>

@@ -26,3 +26,14 @@
   width: 50px;
   display: inline-block;
 }
+
+.jh-logo {
+  height: 50px;
+  margin: 10px auto 0 auto;
+  width: 225px;
+  position: absolute;
+}
+
+.logo-container {
+  margin: 0 auto;
+}
