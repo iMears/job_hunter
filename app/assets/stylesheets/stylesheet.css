@@ -14,3 +14,15 @@
 .form-control {
   margin: 5px 0;
 }
+
+.edit-btn {
+  width: 50px;
+  display: inline-block;
+  position: relative;
+  float: left;
+}
+
+.del-btn {
+  width: 50px;
+  display: inline-block;
+}
