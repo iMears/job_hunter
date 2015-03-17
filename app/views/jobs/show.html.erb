@@ -2,3 +2,17 @@
 
 <div><%= link_to 'Edit', edit_user_job_path(current_user, @job), class: "btn btn-xs btn-warning edit-btn" %></div>
 <div><%= link_to 'Delete', user_job_path(current_user, @job), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger del-btn" %></div>
+
+<div><%= link_to 'Add Note', new_user_job_note_path(current_user, @job), class: "btn btn-xs btn-success" %></div>
+
+<div>
+  <% @notes.each do |note| %>
+    <div>
+      <%= link_to user_job_note_path(current_user, @job, note) do %>
+        <%= note.title %>
+        <%= note.updated_at.to_s(:short) %>
+        <%= note.text %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<h2>Note For <%= @job.company %> - <%= @job.location %> - <%= @job.position %> </h2>
+<div>
+  <h3><%= @note.title %></h3>
+  <p><em><strong>Created:</strong> <%= @note.created_at.to_s(:short) %> | <strong>Updated:</strong> <%= @note.updated_at.to_s(:short) %></em></p>
+  <p></p>
+  <h4><%= @note.text %></h4>
+</div>
+
+<div></div><%= link_to 'Delete', user_job_note_path(current_user, @job, @note), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger del-btn" %>

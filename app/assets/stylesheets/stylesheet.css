@@ -1,5 +1,15 @@
+a {
+  color: gray;
+}
+
+a:hover {
+  color: #d9534f;
+  text-decoration: none;
+}
+
 .navbar {
   height: 75px;
+  border-radius: 0 0 5px 5px;
 }
 
 .nav-txt {

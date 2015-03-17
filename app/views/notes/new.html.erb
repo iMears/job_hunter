@@ -1,0 +1,7 @@
+<h1>New Note For <%= @job.company %> - <%= @job.location %> - <%= @job.position %></h1>
+
+<%= form_for [current_user, @job, @job.notes.build], url: {action: "create"} do |f| %>
+  <%= f.text_field :title, placeholder: "Note Title" %>
+  <%= f.text_area :text, placeholder: "Enter Text..." %>
+  <%= f.submit "Add Note", class: "btn btn-sm btn-success" %>
+<% end %>

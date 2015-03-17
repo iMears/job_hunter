@@ -1,4 +1,32 @@
 Rails.application.routes.draw do
+  get 'notes/index'
+
+  get 'notes/new'
+
+  get 'notes/create'
+
+  get 'notes/show'
+
+  get 'notes/edit'
+
+  get 'notes/update'
+
+  get 'notes/destroy'
+
+  get 'note/index'
+
+  get 'note/new'
+
+  get 'note/create'
+
+  get 'note/show'
+
+  get 'note/edit'
+
+  get 'note/update'
+
+  get 'note/destroy'
+
   get 'jobs/index'
 
   devise_for :users
