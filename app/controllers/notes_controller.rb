@@ -18,9 +18,18 @@ class NotesController < ApplicationController
   end
 
   def edit
+    @job = Job.find(params[:job_id])
+    @note = Note.find(params[:id])
   end
 
   def update
+    note = Note.find(params[:id])
+    @job = Job.find(params[:job_id])
+    if note.update(note_params)
+      redirect_to user_job_path(current_user, @job)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

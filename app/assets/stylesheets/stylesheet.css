@@ -1,3 +1,11 @@
+td {
+  width: 16%
+}
+
+th {
+  text-align: center
+}
+
 a {
   color: gray;
 }
@@ -20,13 +28,23 @@ a:hover {
   display: inline-block;
 }
 
-.session-container {
+.form-container {
   margin: 0 auto;
   width: 200px;
 }
 
+.job-form-container {
+  margin: 0 auto;
+  width: 300px;
+}
+
 .form-control {
   margin: 5px 0;
+}
+
+.form-inline {
+  display: inline-block;
+  width: 250px
 }
 
 .edit-btn {
@@ -50,4 +68,47 @@ a:hover {
 
 .logo-container {
   margin: 0 auto;
+}
+
+.has-error {
+  width: 62%;
+  margin: 0 auto 40px;
+
+}
+
+.greeting {
+  font-size: 32px;
+  color: gray;
+  margin: 30px 0;
+}
+
+.greeting-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.job-info {
+  margin: none;
+  border-radius: 7px;
+  background-color: #ff8856;
+  padding: 10px;
+}
+
+.job-info a {
+  color: white;
+}
+
+.job-info:hover {
+  background-color: #d9534f;
+}
+
+.job-title {
+  font-size: 30px;
+}
+
+/*============== BUTTONS =================*/
+
+.add-job-btn {
+  width: 100px;
+  height: 34px;
 }

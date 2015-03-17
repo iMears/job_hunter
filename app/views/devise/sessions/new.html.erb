@@ -1,4 +1,4 @@
-<div class="session-container form-group has-error">
+<div class="form-container form-group has-error">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>

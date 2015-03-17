@@ -1,2 +1,7 @@
-<h1>Notes#edit</h1>
-<p>Find me in app/views/notes/edit.html.erb</p>
+<h1>Edit Note:</h1>
+
+<%= form_for [current_user, @job, @job.notes.build], url: {action: 'update'}, html: {method: 'put'} do |f| %>
+  <%= f.text_field :title, value: "#{@note.title}" %>
+  <%= f.text_area :text, value: "#{@note.text}" %>
+  <%= f.submit "Edit Note" %>
+<% end %>
