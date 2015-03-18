@@ -63,7 +63,6 @@ a:hover {
 .has-error {
   width: 62%;
   margin: 0 auto 40px;
-
 }
 
 .greeting {
@@ -191,6 +190,25 @@ a:hover {
   font-size: 26px;
 }
 
+.note {
+  margin: 0 15px;
+}
+
+.single-note-title {
+  margin: 0 15px 10px;
+}
+
+.note-container {
+  background-color: #F9F9F9;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 7px;
+  color: gray;
+}
+
+.note-container:hover{
+  background-color: #fff4f4
+}
 
 /*============== BUTTONS =================*/
 
@@ -200,8 +218,7 @@ a:hover {
 }
 
 .add-note-btn {
-  display: inline-block;
-  margin: 20px 0;
+  width: 100%;
 }
 
 .job-btns {
