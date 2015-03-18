@@ -1,18 +1,29 @@
-<h1><%= @job.company %> - <%= @job.location %> - <%= @job.position %></h1>
+<div class="container-fluid">
+  <%= link_to "Back to Jobs", user_jobs_path %>
 
-<div><%= link_to 'Edit Job', edit_user_job_path(current_user, @job), class: "btn btn-xs btn-warning" %></div>
-<div><%= link_to 'Delete Job', user_job_path(current_user, @job), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger" %></div>
+  <h1 class="text-center"><%= @job.position %> <span class="title-min">@</span> <em><%= @job.company %></em> <span class="title-min">in</span> <%= @job.location %></h1>
+  <div class="job-btns">
+    <div><%= link_to 'Edit Job', edit_user_job_path(current_user, @job), class: "btn btn-lg btn-warning edit-btn" %></div>
+    <div><%= link_to 'Delete Job', user_job_path(current_user, @job), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-lg btn-danger del-btn" %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1"></div> <!-- left column job details -->
 
-<div><%= link_to 'Add Note', new_user_job_note_path(current_user, @job), class: "btn btn-xs btn-success" %></div>
-
-<div>
-  <% @notes.each do |note| %>
-    <%= link_to user_job_note_path(current_user, @job, note) do %>
+    <div class="col-md-4 col-md-offset-1"> <!-- right column notes -->
+      <p class="note-title">Notes</p>
+      <div class="add-note-btn pull-right"><%= link_to 'Add Note', new_user_job_note_path(current_user, @job), class: "btn btn-md btn-success" %></div>
       <div>
-        <%= note.title %>
-        <%= note.updated_at.to_s(:short) %>
-        <%= note.text %>
+        <% @notes.each do |note| %>
+          <%= link_to user_job_note_path(current_user, @job, note) do %>
+            <div>
+              <%= note.title %>
+              <%= note.updated_at.to_s(:short) %>
+              <%= note.text %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-    <% end %>
-  <% end %>
-</div>
+    </div>
+
+  </div> <!-- end row -->
+</div> <!-- end container -->
