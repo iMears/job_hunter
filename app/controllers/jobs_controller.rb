@@ -1,4 +1,7 @@
 class JobsController < ApplicationController
+  before_action :check_user_id
+  before_action :set_job, except: [:index, :create]
+
   def index
     @jobs = current_user.jobs.order('created_at DESC')
   end
@@ -10,17 +13,14 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
     @notes = @job.notes
   end
 
   def edit
-    @job = Job.find(params[:id])
   end
 
   def update
-    job = Job.find(params[:id])
-    if job.update(job_params)
+    if @job.update(job_params)
       redirect_to user_job_path
     else
       render 'edit'
@@ -28,12 +28,15 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    job = Job.find(params[:id])
-    job.destroy
+    @job.destroy
     redirect_to user_jobs_path
   end
 
   private
+
+  def set_job
+    @job = Job.find_by!(id: params[:id], user_id: params[:user_id])
+  end
 
   def job_params
     params.require(:job).permit(:company, :position, :location, :job_email, :category)

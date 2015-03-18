@@ -1,31 +1,24 @@
 class NotesController < ApplicationController
-  def index
-  end
+  before_action :check_user_id
+  before_action :set_job
+  before_action :set_note, only: [:update, :destroy, :edit, :show]
 
   def new
-    @job = Job.find(params[:job_id])
   end
 
   def create
-    @job = Job.find(params[:job_id])
     @note = @job.notes.create(note_params)
     redirect_to user_job_path(current_user, @job)
   end
 
   def show
-    @job = Job.find(params[:job_id])
-    @note = Note.find(params[:id])
   end
 
   def edit
-    @job = Job.find(params[:job_id])
-    @note = Note.find(params[:id])
   end
 
   def update
-    note = Note.find(params[:id])
-    @job = Job.find(params[:job_id])
-    if note.update(note_params)
+    if @note.update(note_params)
       redirect_to user_job_path(current_user, @job)
     else
       render 'edit'
@@ -33,13 +26,19 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    @job = Job.find(params[:job_id])
-    note = Note.find(params[:id])
-    note.destroy
+    @note.destroy
     redirect_to user_job_path(current_user, @job)
   end
 
   private
+
+    def set_job
+      @job = current_user.jobs.find(params[:job_id])
+    end
+
+    def set_note
+      @note = @job.notes.find(params[:id])
+    end
 
     def note_params
       params.require(:note).permit(:title, :text)
