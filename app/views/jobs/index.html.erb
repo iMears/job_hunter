@@ -11,21 +11,92 @@
   <% end %>
 </div>
 
-<table class="table">
-  <tr><th>Interested</th><th>Applied</th><th>Hot</th><th>Cold</th><th>Offer</th><th>Rejected</th></tr>
 
-    <% @jobs.each_with_index do |job, index| %>
-    <% break if (@jobs.length - 1) == index %>
-      <tr>
-        <td>
-          <div class="job-info text-center">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 text-center category-col"><p class="category-title">Interested</p>
+      <% @jobs.each_with_index do |job, index| %>
+        <% break if (@jobs.length - 1) == index %>
+        <% if job.category == "interested" %>
+          <div class="job-interested text-center">
             <%= link_to user_job_path(current_user, job) do %>
-            <p class="job-title"><em><%= job.company %></em></p>
-            <h4><%= job.position %></h4>
-            <h5><%= job.location %></h5>
+              <p class="job-title"><em><%= job.company %></em></p>
+              <h4><%= job.position %></h4>
+              <h5><%= job.location %></h5>
             <% end %>
           </div>
-        </td>
-      </tr>
-    <% end %>
-</table>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-2 text-center category-col"><p class="category-title">Applied</p>
+      <% @jobs.each_with_index do |job, index| %>
+        <% break if (@jobs.length - 1) == index %>
+        <% if job.category == "applied" %>
+          <div class="job-applied text-center">
+            <%= link_to user_job_path(current_user, job) do %>
+              <p class="job-title"><em><%= job.company %></em></p>
+              <h4><%= job.position %></h4>
+              <h5><%= job.location %></h5>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-2 text-center category-col"><p class="category-title">Hot</p>
+      <% @jobs.each_with_index do |job, index| %>
+        <% break if (@jobs.length - 1) == index %>
+        <% if job.category == "hot" %>
+          <div class="job-hot text-center">
+            <%= link_to user_job_path(current_user, job) do %>
+              <p class="job-title"><em><%= job.company %></em></p>
+              <h4><%= job.position %></h4>
+              <h5><%= job.location %></h5>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-2 text-center category-col"><p class="category-title">Cold</p>
+      <% @jobs.each_with_index do |job, index| %>
+        <% break if (@jobs.length - 1) == index %>
+        <% if job.category == "cold" %>
+          <div class="job-cold text-center">
+            <%= link_to user_job_path(current_user, job) do %>
+              <p class="job-title"><em><%= job.company %></em></p>
+              <h4><%= job.position %></h4>
+              <h5><%= job.location %></h5>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-2 text-center category-col"><p class="category-title">Offer</p>
+      <% @jobs.each_with_index do |job, index| %>
+        <% break if (@jobs.length - 1) == index %>
+        <% if job.category == "offer" %>
+          <div class="job-offer text-center">
+            <%= link_to user_job_path(current_user, job) do %>
+              <p class="job-title"><em><%= job.company %></em></p>
+              <h4><%= job.position %></h4>
+              <h5><%= job.location %></h5>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-2 text-center category-col"><p class="category-title">Rejected</p>
+      <% @jobs.each_with_index do |job, index| %>
+        <% break if (@jobs.length - 1) == index %>
+        <% if job.category == "rejected" %>
+          <div class="job-rejected text-center">
+            <%= link_to user_job_path(current_user, job) do %>
+              <p class="job-title"><em><%= job.company %></em></p>
+              <h4><%= job.position %></h4>
+              <h5><%= job.location %></h5>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
