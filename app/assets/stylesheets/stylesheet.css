@@ -1,3 +1,7 @@
+body {
+  font-family: 'PT Sans', sans-serif;
+}
+
 td {
   width: 18%
 }
@@ -13,6 +17,14 @@ a {
 a:hover {
   color: #d9534f;
   text-decoration: none;
+}
+
+pre {
+  border: none;
+  background-color: #F9F9F9;
+  color: gray;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
 }
 
 .navbar {
@@ -150,6 +162,21 @@ a:hover {
   resize: none;
 }
 
+.job-info {
+ background-color: #F9F9F9;
+ border-radius: 7px;
+ padding: 10px;
+ color: gray;
+ margin: 5px 0 0;
+}
+
+.job-info-text {
+  margin: 15px 0;
+}
+
+.first-job-info-text {
+  margin: 0;
+}
 
 /*============== BUTTONS =================*/
 
@@ -173,18 +200,12 @@ a:hover {
 }
 
 .job-btns {
-  width: 260px;
-  margin: 0 auto 100px;
-}
-
-.edit-btn {
-  width: 120px;
-  float: left;
-  margin: 5px;
+  width: 220px;
+  margin: 0 auto 40px;
 }
 
 .del-btn {
-  width: 120px;
-  float: right;
-  margin: 5px;
+  width: 220px;
+  margin: 0 auto;
 }
+
