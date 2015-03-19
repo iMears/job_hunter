@@ -8,7 +8,10 @@ class NotesController < ApplicationController
 
   def create
     @note = @job.notes.create(note_params)
-    redirect_to user_job_path(current_user, @job)
+    respond_to do |format|
+      format.html
+      format.json {render json: @note}
+    end
   end
 
   def show

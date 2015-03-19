@@ -1,6 +1,14 @@
-<%= form_for [current_user, current_user.jobs.build], url: {action: 'update'}, html: {method: 'put'} do |f| %>
-  <%= f.text_field :company, value: "#{@job.company}" %>
-  <%= f.text_field :location, value: "#{@job.location}" %>
-  <%= f.text_field :position, value: "#{@job.position}" %>
-  <%= f.submit "Edit Job" %>
-<% end %>
+<div class="col-md-4 col-md-offset-4 has-error">
+  <div class="form-group edit-job-form">
+    <%= form_for [current_user, current_user.jobs.build], url: {action: 'update'}, html: {method: 'put'} do |f| %>
+      <%= f.text_field :company, value: "#{@job.company}", class: "form-control" %>
+      <%= f.text_field :location, value: "#{@job.location}", class: "form-control" %>
+      <%= f.text_field :position, value: "#{@job.position}", class: "form-control" %>
+      <%= f.text_field :job_email, value: "#{@job.job_email }", class: "form-control" , placeholder: "Contact Email" %>
+      <%= f.text_field :phone_number, value: "#{@job.phone_number}", class: "form-control" , placeholder: "Phone Number" %>
+      <%= f.text_field :manager, value: "#{@job.manager}", class: "form-control" , placeholder: "Manager/Recruiter" %>
+      <%= f.text_area :description, value: "#{@job.description}", class: "form-control desc-form", placeholder: "Description" %>
+      <%= f.submit "Save", class: "btn btn-md btn-danger" %>
+    <% end %>
+  </div>
+</div>

@@ -60,7 +60,7 @@ a:hover {
   margin: 0 auto;
 }
 
-.has-error {
+.add-job-container {
   width: 62%;
   margin: 0 auto 40px;
 }
@@ -76,94 +76,24 @@ a:hover {
   margin: 0 auto;
 }
 
-.job-interested {
+.job {
   margin: 20px 0;
   border-radius: 7px;
-  background-color: #c0c0c0;
+  background-color: #F9F9F9;
   padding: 5px;
 }
 
-.job-interested a {
+.job a {
+  color: gray;
+}
+
+.job:hover {
+  background-color: #E15551;
   color: white;
 }
 
-.job-interested:hover {
-  background-color: #AEC6CF;
-}
-
-.job-applied {
-  margin: 20px 0;
-  border-radius: 7px;
-  background-color: #c0c0c0;
-  padding: 5px;
-}
-
-.job-applied a {
+.job:hover a {
   color: white;
-}
-
-.job-applied:hover {
-  background-color: #f0dc82;
-}
-
-.job-hot {
-  margin: 20px 0;
-  border-radius: 7px;
-  background-color: #c0c0c0;
-  padding: 5px;
-}
-
-.job-hot a {
-  color: white;
-}
-
-.job-hot:hover {
-  background-color: #d9534f;
-}
-
-.job-cold {
-  margin: 20px 0;
-  border-radius: 7px;
-  background-color: #c0c0c0;
-  padding: 5px;
-}
-
-.job-cold a {
-  color: white;
-}
-
-.job-cold:hover {
-  background-color: #bcd4e6;
-}
-
-.job-offer {
-  margin: 20px 0;
-  border-radius: 7px;
-  background-color: #c0c0c0;
-  padding: 5px;
-}
-
-.job-offer a {
-  color: white;
-}
-
-.job-offer:hover {
-  background-color: #85bb65;
-}
-
-.job-rejected {
-  margin: 20px 0;
-  border-radius: 7px;
-  background-color: #c0c0c0;
-  padding: 5px;
-}
-
-.job-rejected a {
-  color: white;
-}
-
-.job-rejected:hover {
-  background-color: #B19CD9;
 }
 
 .job-title {
@@ -206,9 +136,19 @@ a:hover {
   color: gray;
 }
 
-.note-container:hover{
-  background-color: #fff4f4
+.note-container:hover {
+  background-color: #F2DEDE
 }
+
+.edit-job-form {
+  width: 100%;
+}
+
+.desc-form {
+  min-height: 150px;
+  resize: none;
+}
+
 
 /*============== BUTTONS =================*/
 

@@ -7,26 +7,17 @@
     <div><%= link_to 'Delete Job', user_job_path(current_user, @job), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-md btn-default del-btn" %></div>
   </div>
   <div class="row">
-    <div class="col-md-5 col-md-offset-1"> <!-- left column job details -->
+    <div class="col-md-4 col-md-offset-1"> <!-- left column job details -->
       <div class="contact">
-        <h3>Contact</h3>
-        <div class="email">
-          <h4>Email</h4>
-        </div>
-        <div class="phone">
-          <h4>Phone</h4>
-        </div>
-        <div class="manager">
-          <h4>Manager </h4>
-        </div>
+        <%= link_to 'Add Contact', edit_user_job_path(current_user, @job), remote: true, class: "btn btn-md btn-danger add-note-btn" %>
       </div>
       <div class="description">
-        <h3>Description</h3>
+        <%= link_to 'Add Description', edit_user_job_path(current_user, @job), remote: true, class: "btn btn-md btn-danger add-note-btn" %>
       </div>
     </div>
 
-    <div class="col-md-4 col-md-offset-1"> <!-- right column notes -->
-      <div><%= link_to 'Add Note', new_user_job_note_path(current_user, @job), class: "btn btn-md btn-danger add-note-btn" %></div>
+    <div class="col-md-4 col-md-offset-2"> <!-- right column notes -->
+      <div><%= link_to 'Add Note', new_user_job_note_path(current_user, @job), remote: true, class: "btn btn-md btn-danger add-note-btn" %></div>
 
       <div id="note-form"></div>
 
@@ -44,8 +35,5 @@
         <% end %>
       </div>
     </div>
-
-    <%= render 'notes/form' %>
-
   </div> <!-- end row -->
 </div> <!-- end container -->

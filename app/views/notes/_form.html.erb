@@ -1,7 +1,7 @@
 <div>
-  <%= form_for [current_user, @job, @job.notes.build], url: {controller: "notes", action: "create"} do |f| %>
-    <%= f.text_field :title, placeholder: "Note Title" %>
-    <%= f.text_area :text, placeholder: "Enter Text..." %>
-    <%= f.submit "Add Note", class: "btn btn-sm btn-success" %>
+  <%= form_for [current_user, @job, @job.notes.build], remote: true, url: {controller: "notes", action: "create"} do |f| %>
+    <%= f.text_field :title, class: "form-control", placeholder: "Note Title" %>
+    <%= f.text_area :text, class: "form-control", placeholder: "Enter Text..." %>
+    <%= f.submit "Save", class: "btn btn-xs btn-danger save-note-btn" %>
   <% end %>
 </div>

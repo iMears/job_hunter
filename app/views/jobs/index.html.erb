@@ -1,14 +1,16 @@
 <div class="greeting-container">
-  <h4 class="greeting text-center">Good Job Hunting, <%= current_user.first_name %>.</h4>
+  <h4 class="greeting text-center">Happy Job Hunting, <%= current_user.first_name %>.</h4>
 </div>
 
-<div class="has-error">
-  <%= form_for [current_user, current_user.jobs.build], url: {action: "create"} do |f| %>
-    <%= f.text_field :company, placeholder: "Company", class: "form-control form-inline" %>
-    <%= f.text_field :location, placeholder: "Location", class: "form-control form-inline" %>
-    <%= f.text_field :position, placeholder: "Position", class: "form-control form-inline" %>
-    <%= f.submit "Add Job", class: "btn btn-sm btn-danger add-job-btn" %>
-  <% end %>
+<div class="add-job-container">
+  <div class="has-error">
+    <%= form_for [current_user, current_user.jobs.build], url: {action: "create"} do |f| %>
+      <%= f.text_field :company, placeholder: "Company", class: "form-control form-inline" %>
+      <%= f.text_field :location, placeholder: "Location", class: "form-control form-inline" %>
+      <%= f.text_field :position, placeholder: "Position", class: "form-control form-inline" %>
+      <%= f.submit "Add Job", class: "btn btn-sm btn-danger add-job-btn" %>
+    <% end %>
+  </div>
 </div>
 
 
@@ -18,7 +20,7 @@
       <% @jobs.each_with_index do |job, index| %>
         <% break if (@jobs.length - 1) == index %>
         <% if job.category == "interested" %>
-          <div class="job-interested text-center">
+          <div class="job text-center">
             <%= link_to user_job_path(current_user, job) do %>
               <p class="job-title"><em><%= job.company %></em></p>
               <h4><%= job.position %></h4>
@@ -32,7 +34,7 @@
       <% @jobs.each_with_index do |job, index| %>
         <% break if (@jobs.length - 1) == index %>
         <% if job.category == "applied" %>
-          <div class="job-applied text-center">
+          <div class="job text-center">
             <%= link_to user_job_path(current_user, job) do %>
               <p class="job-title"><em><%= job.company %></em></p>
               <h4><%= job.position %></h4>
@@ -46,7 +48,7 @@
       <% @jobs.each_with_index do |job, index| %>
         <% break if (@jobs.length - 1) == index %>
         <% if job.category == "hot" %>
-          <div class="job-hot text-center">
+          <div class="job text-center">
             <%= link_to user_job_path(current_user, job) do %>
               <p class="job-title"><em><%= job.company %></em></p>
               <h4><%= job.position %></h4>
@@ -60,7 +62,7 @@
       <% @jobs.each_with_index do |job, index| %>
         <% break if (@jobs.length - 1) == index %>
         <% if job.category == "cold" %>
-          <div class="job-cold text-center">
+          <div class="job text-center">
             <%= link_to user_job_path(current_user, job) do %>
               <p class="job-title"><em><%= job.company %></em></p>
               <h4><%= job.position %></h4>
@@ -74,7 +76,7 @@
       <% @jobs.each_with_index do |job, index| %>
         <% break if (@jobs.length - 1) == index %>
         <% if job.category == "offer" %>
-          <div class="job-offer text-center">
+          <div class="job text-center">
             <%= link_to user_job_path(current_user, job) do %>
               <p class="job-title"><em><%= job.company %></em></p>
               <h4><%= job.position %></h4>
@@ -88,7 +90,7 @@
       <% @jobs.each_with_index do |job, index| %>
         <% break if (@jobs.length - 1) == index %>
         <% if job.category == "rejected" %>
-          <div class="job-rejected text-center">
+          <div class="job text-center">
             <%= link_to user_job_path(current_user, job) do %>
               <p class="job-title"><em><%= job.company %></em></p>
               <h4><%= job.position %></h4>
