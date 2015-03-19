@@ -134,6 +134,7 @@ a:hover {
   margin: 5px 0;
   border-radius: 7px;
   color: gray;
+  clear: both;
 }
 
 .note-container:hover {
@@ -159,6 +160,16 @@ a:hover {
 
 .add-note-btn {
   width: 100%;
+}
+
+.save-note-btn {
+  width: 49%;
+  margin: 0 1% 20px 0;
+}
+
+.cancel-note-btn {
+  width: 49%;
+  margin: 0 0 20px 1%;
 }
 
 .job-btns {
