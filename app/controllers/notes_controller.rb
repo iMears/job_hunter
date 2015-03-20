@@ -8,9 +8,9 @@ class NotesController < ApplicationController
 
   def create
     @note = @job.notes.create(note_params)
+    @user = current_user
     respond_to do |format|
-      format.html
-      format.json {render json: @note}
+      format.json {render json: {note: @note, user: @user}}
     end
   end
 

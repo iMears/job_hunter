@@ -25,6 +25,8 @@ pre {
   color: gray;
   font-family: 'PT Sans', sans-serif;
   font-size: 14px;
+  padding: 0;
+  white-space: normal;
 }
 
 .navbar {
@@ -138,7 +140,10 @@ pre {
 .category-title {
   font-weight: bold;
   font-size: 20px;
-  color: #d9534f;
+  color: white;
+  background: gray;
+  border: 1px gray solid;
+  border-radius: 7px;
 }
 
 .title-min {

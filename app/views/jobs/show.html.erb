@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <%= link_to "Back to Dashboard", user_jobs_path %>
+  <%= link_to "< Back to Dashboard", user_jobs_path %>
 
   <h1 class="text-center title"><%= @job.position %> <span class="title-min">@</span> <em><%= @job.company %></em> <span class="title-min">in</span> <%= @job.location %></h1>
 
@@ -22,7 +22,7 @@
           <h4 class="job-info-text first-job-info-text"><em>Phone Number:&nbsp;  </em><%= @job.phone_number%></h4>
         </div>
         <div class="job-info">
-          <h4 class="job-info-text first-job-info-text"><em>Description:</em></h4><pre><%= @job.description%></pre>
+          <h4 class="job-info-text first-job-info-text"><em>Description:</em></h4><p><pre><%= @job.description%></pre></p>
         </div>
       </div>
     </div>

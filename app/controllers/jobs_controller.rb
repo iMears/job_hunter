@@ -13,7 +13,7 @@ class JobsController < ApplicationController
   end
 
   def show
-    @notes = @job.notes
+    @notes = @job.notes.order('created_at DESC')
   end
 
   def edit
