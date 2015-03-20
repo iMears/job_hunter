@@ -2,28 +2,28 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
   <title>JobHunter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <nav class="navbar navbar-inverse">
   <div id="nav">
-    <div class="logo-container"><%= image_tag "jobHunterLogo.png", class: "jh-logo" %></div>
+    <div class="logo-container"><%= link_to image_tag("jobHunterLogo.png", class: "jh-logo"), root_path %></div>
     <% if user_signed_in? %>
       <p class="nav-txt pull-right"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></p>
     <% end %>
   </div>
   </nav>
 
-  <% if notice != nil %>
-    <% p "notice is: #{notice}" %>
-  <% end %>
-    <p class="alert"><%= alert %></p>
+  <p class="alert-txt text-center"><%= alert %></p>
 
   <%= yield %>
+
+
 </body>
 </html>

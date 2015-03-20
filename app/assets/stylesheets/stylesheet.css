@@ -29,7 +29,7 @@ pre {
 
 .navbar {
   height: 75px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0;
 }
 
 .nav-txt {
@@ -37,7 +37,12 @@ pre {
   list-style-type: none;
   font-size: 20px;
   padding: 15px;
+  margin: 8px;
   display: inline-block;
+}
+
+.alert-txt {
+  color: #D7524E;
 }
 
 .form-container {
@@ -59,11 +64,9 @@ pre {
   width: 250px
 }
 
-
-
 .jh-logo {
   height: 50px;
-  margin: 10px auto 0 auto;
+  margin: 10px 10px;
   width: 225px;
   position: absolute;
 }
@@ -75,6 +78,10 @@ pre {
 .add-job-container {
   width: 62%;
   margin: 0 auto 40px;
+}
+
+.title {
+  margin: 0 0 40px;
 }
 
 .greeting {
@@ -93,6 +100,7 @@ pre {
   border-radius: 7px;
   background-color: #F9F9F9;
   padding: 5px;
+  border: 1px solid gray;
 }
 
 .job a {
@@ -118,8 +126,13 @@ pre {
   display: inline-block;
 }
 
-.category-col {
+#note_text {
+  min-height: 150px;
+  resize: none;
+}
 
+.pre-note:hover {
+  background: #eee;
 }
 
 .category-title {
@@ -147,10 +160,15 @@ pre {
   border-radius: 7px;
   color: gray;
   clear: both;
+  border: 1px solid gray;
 }
 
 .note-container:hover {
-  background-color: #F2DEDE
+  background-color: #eee;
+}
+
+.note-container:hover .pre-note {
+  background-color: #eee;
 }
 
 .edit-job-form {
@@ -168,6 +186,7 @@ pre {
  padding: 10px;
  color: gray;
  margin: 5px 0 0;
+ border: 1px solid gray;
 }
 
 .job-info-text {

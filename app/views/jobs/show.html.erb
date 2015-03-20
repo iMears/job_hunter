@@ -1,12 +1,8 @@
 <div class="container-fluid">
-  <%= link_to "Back to Jobs", user_jobs_path %>
+  <%= link_to "Back to Dashboard", user_jobs_path %>
 
-  <h1 class="text-center"><%= @job.position %> <span class="title-min">@</span> <em><%= @job.company %></em> <span class="title-min">in</span> <%= @job.location %></h1>
-  <div class="job-btns">
-    <div>
-      <%= link_to 'Delete Job', user_job_path(current_user, @job), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-md btn-default del-btn" %>
-    </div>
-  </div>
+  <h1 class="text-center title"><%= @job.position %> <span class="title-min">@</span> <em><%= @job.company %></em> <span class="title-min">in</span> <%= @job.location %></h1>
+
   <div class="row">
     <div class="col-md-5 col-md-offset-1"> <!-- left column job details -->
       <div class="contact">
@@ -14,16 +10,25 @@
           <%= link_to 'Edit Job', edit_user_job_path(current_user, @job), class: "btn btn-md btn-danger add-note-btn" %>
         </div>
         <div class="job-info">
-          <h4 class="job-info-text first-job-info-text"><em>Contact Name:</em> <%= @job.manager%></h4>
-          <h4 class="job-info-text"><em>Contact Email:</em> <%= @job.job_email%></h4>
-          <h4 class="job-info-text"><em>Phone Number:</em> <%= @job.phone_number%></h4>
-          <br>
-          <h4 class="job-info-text"><em>Description:</em></h4><pre><%= @job.description%></pre>
+          <h4 class="job-info-text first-job-info-text"><em>Job Status:&nbsp; </em><%= @job.category.capitalize%></h4>
+        </div>
+        <div class="job-info">
+          <h4 class="job-info-text first-job-info-text"><em>Contact Name:&nbsp; </em><%= @job.manager%></h4>
+        </div>
+        <div class="job-info">
+          <h4 class="job-info-text first-job-info-text"><em>Contact Email:&nbsp;  </em><%= @job.job_email%></h4>
+        </div>
+        <div class="job-info">
+          <h4 class="job-info-text first-job-info-text"><em>Phone Number:&nbsp;  </em><%= @job.phone_number%></h4>
+        </div>
+        <div class="job-info">
+          <h4 class="job-info-text first-job-info-text"><em>Description:</em></h4><pre><%= @job.description%></pre>
         </div>
       </div>
     </div>
 
     <div class="col-md-4 col-md-offset-1"> <!-- right column notes -->
+
       <div>
         <%= link_to 'Add Note', new_user_job_note_path(current_user, @job), remote: true, class: "btn btn-md btn-danger add-note-btn" %>
       </div>
@@ -32,7 +37,7 @@
 
       <div class="all-notes">
         <% @notes.each do |note| %>
-          <%= link_to user_job_note_path(current_user, @job, note) do %>
+          <%= link_to edit_user_job_note_path(current_user, @job, note) do %>
             <div class="note-container">
               <div class="row">
                 <div class="pull-left">
@@ -44,7 +49,7 @@
                   <%= note.updated_at.to_s(:short) %>
                 </div>
               </div>
-              <div><%= note.text %></div>
+              <div><pre class="pre-note"><%= note.text %></pre></div>
             </div>
           <% end %>
         <% end %>

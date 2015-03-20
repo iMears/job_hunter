@@ -17,7 +17,7 @@ $(document).ready (function(){
     template += "</div>";
     template += "</a>";
 
-    $('.all-notes').append(template);
+    // $('.all-notes').append(template);
   });
   $(document).on('ajax:error', '.note-form', function(xhr, status, error) {
     console.log("Error!!");
