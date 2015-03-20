@@ -35,6 +35,12 @@ $(document).ready (function(){
     $('#note-form').html('');
   });
 
+  $('.move').on('click', function() {
+    $($(this).parent().get(0).childNodes[2]).toggle();
+    // $('.move-dropdown').toggle();
+    // $(this).parent().toggle();
+  });
+
     // $('.add-job-btn').on('click', function() {
     //     swal('show me your divs!!!');
     // });
