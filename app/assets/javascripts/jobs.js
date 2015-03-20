@@ -35,7 +35,7 @@ $(document).ready (function(){
     $('#note-form').html('');
   });
 
-    $('.add-job-btn').on('click', function() {
-        swal('show me your divs!!!');
-    });
+    // $('.add-job-btn').on('click', function() {
+    //     swal('show me your divs!!!');
+    // });
 });
