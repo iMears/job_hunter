@@ -37,8 +37,6 @@ $(document).ready (function(){
 
   $('.move').on('click', function() {
     $($(this).parent().get(0).childNodes[2]).toggle();
-    // $('.move-dropdown').toggle();
-    // $(this).parent().toggle();
   });
 
     // $('.add-job-btn').on('click', function() {
