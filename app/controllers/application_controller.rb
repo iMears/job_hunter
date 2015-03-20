@@ -5,16 +5,26 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  layout :layout
+
+  private
+
+    def layout
+      if is_a?(Devise::SessionsController) || is_a?(Devise::RegistrationsController)
+        return false
+      end
+    end
+
   protected
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :password) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password) }
-  end
-
-  def check_user_id
-    if current_user == nil || current_user.id != params[:user_id].to_i
-      redirect_to root_path
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :password) }
+      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password) }
     end
-  end
+
+    def check_user_id
+      if current_user == nil || current_user.id != params[:user_id].to_i
+        redirect_to root_path
+      end
+    end
 end
