@@ -23,7 +23,6 @@ $(document).ready (function(){
     $template.find('.insert-note-text').text(data.note.text).removeClass('insert-note-text');
 
     $('.all-notes').prepend($template);
-
     $('.note-form').html('');
   });
   $(document).on('ajax:error', '.note-form', function(xhr, status, error) {

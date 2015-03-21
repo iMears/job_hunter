@@ -22,9 +22,7 @@
 
   <p class="alert-txt text-center"><%= alert %></p>
 
-  <% if flash[:success] %>
-    <script>swal(<%= flash[:success].to_json.html_safe %>, "Your job has been added!", "success")</script>
-  <% end %>
+  <%= render 'shared/sweet_alerts' %>
 
   <%= yield %>
 

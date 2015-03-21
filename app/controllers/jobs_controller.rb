@@ -7,9 +7,12 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.create(job_params)
-    current_user.jobs << @job
-    flash[:success] = "Good Job!"
+    @job = current_user.jobs.create(job_params)
+    if @job.valid?
+      flash[:success] = "Job Added!"
+    else
+      flash[:error] = {title: "Invalid Job!", messages: @job.errors.full_messages}
+    end
     redirect_to user_jobs_path
   end
 
