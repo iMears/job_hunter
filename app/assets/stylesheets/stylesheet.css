@@ -245,7 +245,6 @@ pre {
 
 .welcome-logo-container {
   height: 500px;
-  background-color: black;
   background-image: url("banner.jpg");
   margin-bottom: 50px;
   z-index: -1;
@@ -289,6 +288,14 @@ pre {
         font-size: 40px;
         width: 80%;
         margin: 150px auto 0;
+    }
+}
+
+@media screen and (max-width: 377px) {
+    .welcome-title {
+        font-size: 25px;
+        width: 90%;
+        margin: 125px auto 0;
     }
 }
 
