@@ -257,7 +257,8 @@ pre {
   top: 0;
   left: 0;
   z-index: 0;
-  background: rgba(0, 0, 0, 0.80);
+/*  background: rgb(0, 0, 0);  The Fallback
+  background: rgba(0, 0, 0, 0.80);*/
 }
 
 .welcome-title-container {
