@@ -9,6 +9,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.create(job_params)
     current_user.jobs << @job
+    flash[:success] = "Good Job!"
     redirect_to user_jobs_path
   end
 

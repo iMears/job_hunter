@@ -39,8 +39,4 @@ $(document).ready (function(){
     event.preventDefault();
     $(this).closest('.job').find('.move-dropdown').toggle();
   });
-
-    // $('.add-job-btn').on('click', function() {
-    //     swal('show me your divs!!!');
-    // });
 });
