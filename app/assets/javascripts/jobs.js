@@ -35,7 +35,8 @@ $(document).ready (function(){
     $('#note-form').html('');
   });
 
-  $('.move').on('click', function() {
+  $(document).on('click', '.move', function(event) {
+    event.preventDefault();
     $(this).closest('.job').find('.move-dropdown').toggle();
   });
 

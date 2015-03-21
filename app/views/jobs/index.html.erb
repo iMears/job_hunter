@@ -15,137 +15,31 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2 text-center category-col"><p class="category-title">Interested</p>
-      <% @jobs.each_with_index do |job, index| %>
-        <% break if (@jobs.length - 1) == index %>
-        <% if job.category == "interested" %>
+    <% Job::CATEGORIES.each do |c| %>
+      <div class="col-md-2 text-center category-col">
+        <p class="category-title">
+          <%= c.capitalize %>
+        </p>
+        <% @jobs.where(category: c).each_with_index do |job, index| %>
           <div class="job text-center">
             <%= link_to user_job_path(current_user, job) do %>
-              <p class="job-title"><em><%= job.company %></em></p>
+              <p class="job-title">
+                <em><%= job.company %></em>
+              </p>
               <h4><%= job.position %></h4>
               <h5><%= job.location %></h5>
             <% end %>
             <%= form_for [current_user, job] do |f| %>
               <%= hidden_field_tag 'redirect_to', user_jobs_path(current_user) %>
               <div class="dropdown move-dropdown has-error">
-                <%= f.select :category, options_for_select([['Interested', 'interested'], ['Applied', 'applied'], ['Hot', 'hot'], ['Cold', 'cold'], ['Offer', 'offer'], ['Rejected', 'rejected']], selected: "#{job.category}" ), {}, {class: "form-control btn btn-default dropdown-toggle"} %>
+                <%= f.select :category, options_for_select(Job::CATEGORIES.map{|c| [c.capitalize, c]}, selected: "#{job.category}" ), {}, {class: "form-control btn btn-default dropdown-toggle"} %>
                 <%= f.submit "Save", class: "form-control btn btn-danger" %>
               </div>
               <a href="#" class="move">&lt; Move &gt;</a>
             <% end %>
           </div>
         <% end %>
-      <% end %>
-    </div>
-
-    <div class="col-md-2 text-center category-col"><p class="category-title">Applied</p>
-      <% @jobs.each_with_index do |job, index| %>
-        <% break if (@jobs.length - 1) == index %>
-        <% if job.category == "applied" %>
-          <div class="job text-center">
-            <%= link_to user_job_path(current_user, job) do %>
-              <p class="job-title"><em><%= job.company %></em></p>
-              <h4><%= job.position %></h4>
-              <h5><%= job.location %></h5>
-            <% end %>
-            <%= form_for user_job_path(current_user, job) do |f| %>
-              <div class="dropdown move-dropdown has-error">
-                <%= f.select :category, options_for_select([['Interested', 'interested'], ['Applied', 'applied'], ['Hot', 'hot'], ['Cold', 'cold'], ['Offer', 'offer'], ['Rejected', 'rejected']], selected: "#{job.category}" ), {}, {class: "form-control btn btn-default dropdown-toggle"} %>
-                <%= f.submit "Save", class: "form-control btn btn-danger" %>
-              </div>
-              <a href="#" class="move">&lt; Move &gt;</a>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="col-md-2 text-center category-col"><p class="category-title">Hot</p>
-      <% @jobs.each_with_index do |job, index| %>
-        <% break if (@jobs.length - 1) == index %>
-        <% if job.category == "hot" %>
-          <div class="job text-center">
-            <%= link_to user_job_path(current_user, job) do %>
-              <p class="job-title"><em><%= job.company %></em></p>
-              <h4><%= job.position %></h4>
-              <h5><%= job.location %></h5>
-            <% end %>
-            <%= form_for user_job_path(current_user, job) do |f| %>
-              <div class="dropdown move-dropdown has-error">
-                <%= f.select :category, options_for_select([['Interested', 'interested'], ['Applied', 'applied'], ['Hot', 'hot'], ['Cold', 'cold'], ['Offer', 'offer'], ['Rejected', 'rejected']], selected: "#{job.category}" ), {}, {class: "form-control btn btn-default dropdown-toggle"} %>
-                <%= f.submit "Save", class: "form-control btn btn-danger" %>
-              </div>
-              <a href="#" class="move">&lt; Move &gt;</a>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="col-md-2 text-center category-col"><p class="category-title">Cold</p>
-      <% @jobs.each_with_index do |job, index| %>
-        <% break if (@jobs.length - 1) == index %>
-        <% if job.category == "cold" %>
-          <div class="job text-center">
-            <%= link_to user_job_path(current_user, job) do %>
-              <p class="job-title"><em><%= job.company %></em></p>
-              <h4><%= job.position %></h4>
-              <h5><%= job.location %></h5>
-            <% end %>
-            <%= form_for user_job_path(current_user, job) do |f| %>
-              <div class="dropdown move-dropdown has-error">
-                <%= f.select :category, options_for_select([['Interested', 'interested'], ['Applied', 'applied'], ['Hot', 'hot'], ['Cold', 'cold'], ['Offer', 'offer'], ['Rejected', 'rejected']], selected: "#{job.category}" ), {}, {class: "form-control btn btn-default dropdown-toggle"} %>
-                <%= f.submit "Save", class: "form-control btn btn-danger" %>
-              </div>
-              <a href="#" class="move">&lt; Move &gt;</a>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="col-md-2 text-center category-col"><p class="category-title">Offer</p>
-      <% @jobs.each_with_index do |job, index| %>
-        <% break if (@jobs.length - 1) == index %>
-        <% if job.category == "offer" %>
-          <div class="job text-center">
-            <%= link_to user_job_path(current_user, job) do %>
-              <p class="job-title"><em><%= job.company %></em></p>
-              <h4><%= job.position %></h4>
-              <h5><%= job.location %></h5>
-            <% end %>
-            <%= form_for user_job_path(current_user, job) do |f| %>
-              <div class="dropdown move-dropdown has-error">
-                <%= f.select :category, options_for_select([['Interested', 'interested'], ['Applied', 'applied'], ['Hot', 'hot'], ['Cold', 'cold'], ['Offer', 'offer'], ['Rejected', 'rejected']], selected: "#{job.category}" ), {}, {class: "form-control btn btn-default dropdown-toggle"} %>
-                <%= f.submit "Save", class: "form-control btn btn-danger" %>
-              </div>
-              <a href="#" class="move">&lt; Move &gt;</a>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="col-md-2 text-center category-col"><p class="category-title">Rejected</p>
-      <% @jobs.each_with_index do |job, index| %>
-        <% break if (@jobs.length - 1) == index %>
-        <% if job.category == "rejected" %>
-          <div class="job text-center">
-            <%= link_to user_job_path(current_user, job) do %>
-              <p class="job-title"><em><%= job.company %></em></p>
-              <h4><%= job.position %></h4>
-              <h5><%= job.location %></h5>
-            <% end %>
-            <%= form_for user_job_path(current_user, job) do |f| %>
-              <div class="dropdown move-dropdown has-error">
-                <%= f.select :category, options_for_select([['Interested', 'interested'], ['Applied', 'applied'], ['Hot', 'hot'], ['Cold', 'cold'], ['Offer', 'offer'], ['Rejected', 'rejected']], selected: "#{job.category}" ), {}, {class: "form-control btn btn-default dropdown-toggle"} %>
-                <%= f.submit "Save", class: "form-control btn btn-danger" %>
-              </div>
-              <a href="#" class="move">&lt; Move &gt;</a>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
