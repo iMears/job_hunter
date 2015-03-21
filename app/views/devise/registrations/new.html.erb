@@ -13,6 +13,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="welcome-header">
+    <div class="welcome-nav-overlay"></div>
+    <div class="logo-container">
+      <%= image_tag("jobHunterLogo.png", class: "jh-logo") %>
+    </div>
+    <div class="welcome-title-container text-center">
+      <div class="welcome-title">The simple and visual way to organize the job hunting process.</div>
+    </div>
+  </div>
+
   <div class="form-container form-group has-error">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
