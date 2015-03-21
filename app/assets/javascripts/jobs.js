@@ -36,7 +36,7 @@ $(document).ready (function(){
   });
 
   $('.move').on('click', function() {
-    $($(this).parent().get(0).childNodes[2]).toggle();
+    $(this).closest('.job').find('.move-dropdown').toggle();
   });
 
     // $('.add-job-btn').on('click', function() {

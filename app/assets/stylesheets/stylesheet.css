@@ -257,8 +257,8 @@ pre {
   top: 0;
   left: 0;
   z-index: 0;
-/*  background: rgb(0, 0, 0);  The Fallback
-  background: rgba(0, 0, 0, 0.80);*/
+  background: rgb(0, 0, 0);  /*The Fallback*/
+  background: rgba(0, 0, 0, 0.80);
 }
 
 .welcome-title-container {
@@ -270,7 +270,7 @@ pre {
 
 .welcome-title {
   position: relative;
-  width: 48%;
+  width: 55%;
   margin: 175px auto 0;
   color: white;
   font-size: 50px;

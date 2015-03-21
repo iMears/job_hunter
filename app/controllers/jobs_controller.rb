@@ -20,9 +20,8 @@ class JobsController < ApplicationController
   end
 
   def update
-    p job.id
     if @job.update(job_params)
-      redirect_to user_job_path
+      redirect_to params[:redirect_to] || user_job_path
     else
       render 'edit'
     end

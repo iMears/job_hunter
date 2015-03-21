@@ -25,7 +25,8 @@
               <h4><%= job.position %></h4>
               <h5><%= job.location %></h5>
             <% end %>
-            <%= form_for job, url:user_job_path(current_user, job), action: "update" do |f| %>
+            <%= form_for [current_user, job] do |f| %>
+              <%= hidden_field_tag 'redirect_to', user_jobs_path(current_user) %>
               <div class="dropdown move-dropdown has-error">
                 <%= f.select :category, options_for_select([['Interested', 'interested'], ['Applied', 'applied'], ['Hot', 'hot'], ['Cold', 'cold'], ['Offer', 'offer'], ['Rejected', 'rejected']], selected: "#{job.category}" ), {}, {class: "form-control btn btn-default dropdown-toggle"} %>
                 <%= f.submit "Save", class: "form-control btn btn-danger" %>
