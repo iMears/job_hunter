@@ -1,0 +1,45 @@
+<div class="greeting-container">
+  <h4 class="greeting text-center">Happy Job Hunting, <%= current_user.first_name %>.</h4>
+</div>
+
+<div class="add-job-container">
+  <div class="has-error">
+    <%= form_for [current_user, current_user.jobs.build], url: {action: "create"} do |f| %>
+      <%= f.text_field :company, placeholder: "Company", class: "form-control form-inline" %>
+      <%= f.text_field :location, placeholder: "Location", class: "form-control form-inline" %>
+      <%= f.text_field :position, placeholder: "Position", class: "form-control form-inline" %>
+      <%= f.submit "Add Job", class: "btn btn-sm btn-danger add-job-btn" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <% Job::CATEGORIES.each do |c| %>
+      <div class="col-md-2 text-center category-col">
+        <p class="category-title">
+          <%= c.capitalize %>
+        </p>
+        <% @jobs.where(category: c).each_with_index do |job, index| %>
+          <div class="job text-center">
+            <%= link_to user_job_path(current_user, job) do %>
+              <p class="job-title">
+                <em><%= job.company %></em>
+              </p>
+              <h4><%= job.position %></h4>
+              <h5><%= job.location %></h5>
+            <% end %>
+            <%= form_for [current_user, job] do |f| %>
+              <%= hidden_field_tag 'redirect_to', user_jobs_path(current_user) %>
+              <div class="dropdown move-dropdown has-error">
+                <%= f.select :category, options_for_select(Job::CATEGORIES.map{|c| [c.capitalize, c]}, selected: "#{job.category}" ), {}, {class: "form-control btn btn-default dropdown-toggle"} %>
+                <%= f.submit "Save", class: "form-control btn btn-danger" %>
+              </div>
+              <a href="#" class="move">&lt; Move &gt;</a>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

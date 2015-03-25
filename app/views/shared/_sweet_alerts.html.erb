@@ -1,0 +1,36 @@
+<% if flash[:success] %>
+  <script>
+    swal( {title: <%= flash[:success].to_json.html_safe %>,
+          text: "Your job has been added!",
+          timer: 2000,
+          allowOutsideClick: true,
+          showConfirmButton: false,
+          type: "success"})
+  </script>
+<% end %>
+
+<% if flash[:error] %>
+  <% content_for :error_message do %>
+    <div>
+      <% flash[:error]['messages'].each do |message| %>
+        <div class="error-msgs"><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+  <script>
+    swal({ title: <%= flash[:error]['title'].to_json.html_safe %>,
+           text: <%= yield(:error_message).to_json.html_safe %>,
+           type: 'error',
+           html: true,
+           allowOutsideClick: true,
+           confirmButtonColor: "#C43136" });
+  </script>
+<% end %>
+
+<% if flash.now[:alert] %>
+  <script>
+    swal({ title: <%= flash[:alert].to_json.html_safe %>,
+           type: 'error',
+           confirmButtonColor: "#C43136" });
+  </script>
+<% end %>

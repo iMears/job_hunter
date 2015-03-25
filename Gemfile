@@ -28,6 +28,14 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'hirb'
+
+gem 'rails_12factor', group: :production
+
+gem 'sweet-alert'
+
+gem 'sweet-alert-confirm'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

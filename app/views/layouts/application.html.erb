@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JobHunter</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <title>JobHunter</title>
+  <%= favicon_link_tag 'favicon.png' %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <nav class="navbar navbar-inverse">
+    <div id="nav">
+      <div class="logo-container"><%= link_to image_tag("jobHunterLogo.png", class: "jh-logo"), root_path %></div>
+      <% if user_signed_in? %>
+        <p class="nav-txt pull-right"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></p>
+      <% end %>
+    </div>
+  </nav>
+
+  <p class="alert-txt text-center"><%= alert %></p>
+
+  <%= render 'shared/sweet_alerts' %>
 
   <%= yield %>
+
 </body>
 </html>
