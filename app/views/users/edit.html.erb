@@ -4,9 +4,9 @@
   <div class="col-md-4 col-md-offset-4 has-error">
     <div class="form-group edit-job-form">
       <%= form_for current_user, url: {action: 'update'}, html: {method: 'put'} do |f| %>
-        <%= f.text_field :first_name, value: "#{current_user.first_name}", class: "form-control" %>
-        <%= f.text_field :last_name, value: "#{current_user.last_name}", class: "form-control" %>
-        <%= f.text_field :email, value: "#{current_user.email}", class: "form-control" %>
+        <%= f.text_field :first_name, placeholder: 'First Name', value: "#{current_user.first_name}", class: "form-control" %>
+        <%= f.text_field :last_name, placeholder: 'Last Name', value: "#{current_user.last_name}", class: "form-control" %>
+        <%= f.text_field :email, placeholder: 'Email', value: "#{current_user.email}", class: "form-control" %>
         <%= f.submit "Save Profile", class: "form-control btn btn-danger" %>
       <% end %>
 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contact_us/email'
+
   get 'users/show'
 
   get 'users/edit'

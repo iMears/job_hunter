@@ -14,3 +14,21 @@
  *= require_tree .
  *= require_self
  */
+
+ footer {
+  width: 100%;
+  position: absolute;
+  clear:both;
+  bottom: 0;
+  color: white;
+  height: 40px;
+  text-align: center;
+  background-color: gray;
+  margin: 0;
+ }
+
+ footer li {
+  padding: 0 40px;
+  /*margin-top: 10px;*/
+  display: inline;
+ }
