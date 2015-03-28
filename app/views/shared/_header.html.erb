@@ -3,7 +3,7 @@
     <div class="logo-container"><%= link_to image_tag("jobHunterLogo.png", class: "jh-logo"), root_path %></div>
     <% if user_signed_in? %>
       <p class="nav-txt pull-right"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></p>
-      <p class="nav-txt pull-right"><%= link_to 'Profile', user_path(current_user)  %></p>
+      <p class="nav-txt pull-right"><%= link_to 'Profile', edit_user_path(current_user)  %></p>
     <% end %>
   </div>
 </nav>
