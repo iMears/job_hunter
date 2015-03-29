@@ -4,7 +4,7 @@
   <div class="col-md-4 col-md-offset-4 has-error">
     <div class="form-group">
       <div class="text-center">
-        <p><em><strong>Created:</strong> <%= @note.created_at.to_s(:short) %> | <strong>Updated:</strong> <%= @note.updated_at.to_s(:short) %></em></p>
+        <p><em><strong>Created:</strong> <%= time_ago_in_words(@note.created_at) %> ago</em></p>
         <p></p>
       </div>
       <%= form_for [current_user, @job, @job.notes.build], url: {action: 'update'}, html: {method: 'put'} do |f| %>
