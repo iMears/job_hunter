@@ -8,10 +8,30 @@
 }
 
 #personal-profiles {
-  margin: 80px;
+  // margin: 40px;
 }
 
 .profile-pic {
   border-radius: 100%;
-  max-width: 50%;
+  max-width: 25%;
+  border: 5px solid white;
+}
+
+.profile {
+  padding: 20px;
+  line-height: 25px;
+}
+
+#about-text {
+  line-height: 25px;
+  font-size: 16px;
+}
+
+#about-spacer {
+  margin-bottom: 100px;
+}
+
+.profile-container {
+  padding: 40px;
+  min-height: 422px;
 }
