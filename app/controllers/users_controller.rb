@@ -10,8 +10,11 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to user_path(current_user)
+      flash[:update] = "Profile Saved!"
+      redirect_to root_path
     else
+      flash[:alert] = {title: "Error", messages: ["Error saving profile, please try again!", "WTF!"]}
+      # flash[:error] = {title: "Error!", message: current_user.errors.full_messages}
       render 'edit'
     end
   end

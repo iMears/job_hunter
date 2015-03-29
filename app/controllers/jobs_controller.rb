@@ -36,6 +36,15 @@ class JobsController < ApplicationController
     redirect_to user_jobs_path
   end
 
+  # def destroy_all
+  #   p "-" * 12
+  #   p jobs = Job.find_by!(user_id: params[:user_id])
+  #   jobs.each do |job|
+  #     job.destroy
+  #   end
+  #   redirect_to user_jobs_path
+  # end
+
   private
 
   def set_job

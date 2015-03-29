@@ -8,6 +8,15 @@
   </script>
 <% end %>
 
+<% if flash[:update] %>
+  <script>
+    swal( {title: "Success!",
+          text: "Your profile was successfully updated!",
+          allowOutsideClick: true,
+          type: "success"})
+  </script>
+<% end %>
+
 <% if flash[:error] %>
   <% content_for :error_message do %>
     <div>
@@ -33,3 +42,4 @@
            confirmButtonColor: "#C43136" });
   </script>
 <% end %>
+
