@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'contact_us/email'
+  get 'about_us/show', as: 'about'
+
+  get 'contact_us/email', as: 'contact'
 
   get 'users/show'
 
