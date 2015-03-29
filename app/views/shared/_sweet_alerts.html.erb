@@ -1,8 +1,6 @@
 <% if flash[:success] %>
   <script>
     swal( {title: <%= flash[:success].to_json.html_safe %>,
-          text: "Your <%p current_user.jobs.last %>job has been added!",
-          timer: 2000,
           allowOutsideClick: true,
           type: "success"})
   </script>

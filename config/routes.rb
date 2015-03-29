@@ -45,6 +45,9 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :jobs do
+      collection do
+        delete :index, action: :destroy_all
+      end
       resources :notes
     end
   end

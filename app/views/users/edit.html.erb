@@ -10,7 +10,7 @@
         <%= f.submit "Save Profile", class: "form-control btn btn-danger" %>
       <% end %>
       <%= link_to 'Change Password', "", class: "form-control btn btn-default" %>
-      <%= link_to 'Remove All Jobs', "", data: {confirm: 'Are you sure?'}, class: "form-control btn btn-default" %>
+      <%= link_to 'Remove All Jobs', user_jobs_path(current_user), method: :delete,  data: {confirm: 'Are you sure?'}, class: "form-control btn btn-default" %>
       <%= link_to 'Delete My Profile', user_path(current_user), method: :delete, data: {confirm: "Are you sure?"}, class: "form-control btn btn-default" %>
     </div>
   </div>
