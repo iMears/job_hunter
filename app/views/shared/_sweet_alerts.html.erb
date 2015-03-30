@@ -1,10 +1,16 @@
 <% if flash[:success] %>
   <script>
     swal( {title: <%= flash[:success].to_json.html_safe %>,
-          text: "Your job has been added!",
-          timer: 2000,
           allowOutsideClick: true,
-          showConfirmButton: false,
+          type: "success"})
+  </script>
+<% end %>
+
+<% if flash[:update] %>
+  <script>
+    swal( {title: "Success!",
+          text: "Your profile was successfully updated!",
+          allowOutsideClick: true,
           type: "success"})
   </script>
 <% end %>
@@ -34,3 +40,4 @@
            confirmButtonColor: "#C43136" });
   </script>
 <% end %>
+

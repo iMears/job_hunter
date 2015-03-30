@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'about_us/show', as: 'about'
+
+  get 'contact_us/email', as: 'contact'
+
+  get 'users/show'
+
+  get 'users/edit'
+
+  get 'users/update'
+
+  get 'users/destroy'
+
   get 'notes/index'
 
   get 'notes/new'
@@ -33,6 +45,9 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :jobs do
+      collection do
+        delete :index, action: :destroy_all
+      end
       resources :notes
     end
   end
@@ -40,6 +55,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :resumes
   end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,49 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-  <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
-  <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
-  <title>Job Huntr</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= render 'shared/head' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= favicon_link_tag 'favicon.png' %>
 </head>
 <body>
-
-  <div class="welcome-header">
-    <div class="welcome-nav-overlay"></div>
-    <div class="welcome-logo-container">
-      <%= image_tag("jobHunterLogo.png", class: "jh-logo") %>
-    </div>
-    <div class="welcome-title-container text-center">
-      <div class="welcome-title">The simple and visual way to organize the job hunting process.</div>
-    </div>
-  </div>
-
-  <div class="container-fluid">
-    <div class="form-container form-group has-error">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
+  <div id="page-wrapper">
+    <div id="page-header">
+      <%= render 'shared/welcome_header' %>
+    </div> <!-- end page-header -->
+    <div id="page-content">
+      <div class="container-fluid">
+        <div class="form-container form-group has-error">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+              <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
+            </div>
+            <div class="field">
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "Log in", class: "form-control btn btn-danger"%>
+            </div>
+          <% end %>
+          <%= render "shared/sweet_alerts" %>
+          <%= render "devise/shared/links" %>
         </div>
-
-        <div class="field">
-          <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "Log in", class: "form-control btn btn-danger"%>
-        </div>
-      <% end %>
-
-      <%= render "shared/sweet_alerts" %>
-      <%= render "devise/shared/links" %>
+      </div>
+    </div> <!-- end page-content -->
+    <div id="page-footer">
+      <%= render 'shared/footer' %>
     </div>
-  </div>
+  </div> <!-- end page-wrapper -->
 </body>
 </html>

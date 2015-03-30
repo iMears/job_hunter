@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :check_user_id
-  before_action :set_job, except: [:index, :create]
+  before_action :set_job, except: [:index, :create, :destroy_all]
 
   def index
     @jobs = current_user.jobs.order('created_at DESC')
@@ -33,6 +33,19 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
+    redirect_to user_jobs_path
+  end
+
+  def destroy_all
+    jobs = Job.where(user_id: params[:user_id])
+    jobs.destroy_all
+
+    if jobs.empty?
+      flash[:success] = "All jobs removed!"
+    else
+      flash[:alert] = ["Jobs Could Not Be Removed!"]
+    end
+
     redirect_to user_jobs_path
   end
 

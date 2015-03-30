@@ -10,9 +10,7 @@ class ApplicationController < ActionController::Base
   private
 
     def layout
-      if is_a?(Devise::SessionsController) || is_a?(Devise::RegistrationsController)
-        return false
-      end
+      return false if is_a?(Devise::SessionsController) || is_a?(Devise::RegistrationsController)
     end
 
   protected
