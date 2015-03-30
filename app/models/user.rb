@@ -10,7 +10,10 @@ class User < ActiveRecord::Base
   has_one :resume, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-  validates :email, presence: true, length: { maximum: 105 },
-                                    uniqueness: { case_sensitive: false },
-                                    format: { with: VALID_EMAIL_REGEX }
+  validates :email, length: { maximum: 105 },
+                    uniqueness: { case_sensitive: false },
+                    format: { with: VALID_EMAIL_REGEX }
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end
