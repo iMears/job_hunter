@@ -9,7 +9,7 @@
         <%= f.text_field :email, placeholder: 'Email', value: "#{current_user.email}", class: "form-control" %>
         <%= f.submit "Save Profile", class: "form-control btn btn-danger" %>
       <% end %>
-      <%= link_to 'Change Password', " ", class: "form-control btn btn-default" %>
+      <%= link_to 'Change Password', "", class: "form-control btn btn-default" %>
       <%= link_to 'Remove All Jobs', user_jobs_path(current_user), method: :delete,  data: {confirm: 'Are you sure?'}, class: "form-control btn btn-default" %>
       <%= link_to 'Delete My Profile', user_path(current_user), method: :delete, data: {confirm: "Are you sure?"}, class: "form-control btn btn-default" %>
     </div>
