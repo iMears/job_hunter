@@ -6,8 +6,8 @@
   <div class="has-error">
     <%= form_for [current_user, current_user.jobs.build], url: {action: "create"} do |f| %>
       <%= f.text_field :company, placeholder: "Company", class: "form-control form-inline" %>
-      <%= f.text_field :position, placeholder: "Position", class: "form-control form-inline" %>
       <%= f.text_field :location, placeholder: "Location", class: "form-control form-inline" %>
+      <%= f.text_field :position, placeholder: "Position", class: "form-control form-inline" %>
       <%= f.submit "Add Job", class: "btn btn-sm btn-danger add-job-btn" %>
     <% end %>
   </div>
