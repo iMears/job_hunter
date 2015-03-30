@@ -49,7 +49,7 @@
                   <%= note.updated_at.to_s(:short) %>
                 </div>
               </div>
-              <div><pre class="pre-note"><%= note.text %></pre></div>
+              <div><%= simple_format(note.text) %></div>
             </div>
           <% end %>
         <% end %>
