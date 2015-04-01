@@ -8,11 +8,12 @@
           <%= f.select :category, options_for_select([['Interested', 'interested'], ['Applied', 'applied'], ['Hot', 'hot'], ['Cold', 'cold'], ['Offer', 'offer'], ['Rejected', 'rejected']], selected: "#{@job.category}" ), {}, {class: "form-control btn btn-default dropdown-toggle"} %>
         </div>
         <%= f.text_field :company, value: "#{@job.company}", class: "form-control" %>
-        <%= f.text_field :location, value: "#{@job.location}", class: "form-control" %>
         <%= f.text_field :position, value: "#{@job.position}", class: "form-control" %>
+        <%= f.text_field :location, value: "#{@job.location}", class: "form-control" %>
+        <%= f.text_field :link, value: "#{@job.link}", class: "form-control", placeholder: "Link" %>
+        <%= f.text_field :manager, value: "#{@job.manager}", class: "form-control" , placeholder: "Contact Name" %>
         <%= f.text_field :job_email, value: "#{@job.job_email }", class: "form-control" , placeholder: "Contact Email" %>
         <%= f.text_field :phone_number, value: "#{@job.phone_number}", class: "form-control" , placeholder: "Phone Number" %>
-        <%= f.text_field :manager, value: "#{@job.manager}", class: "form-control" , placeholder: "Manager/Recruiter" %>
         <%= f.text_area  :description, value: "#{@job.description}", class: "form-control desc-form", placeholder: "Description" %>
         <%= f.submit "Save Job", class: "form-control btn btn-danger" %>
       <% end %>
