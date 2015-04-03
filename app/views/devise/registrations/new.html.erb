@@ -14,7 +14,7 @@
     <div id="page-content">
       <div class="form-container form-group has-error">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= devise_error_messages! %>
+          <!-- <%= devise_error_messages! %> -->
           <div class="field">
             <%= f.text_field :first_name, autofocus: true, placeholder: "First Name", class: "form-control" %>
           </div>
@@ -34,6 +34,7 @@
             <%= f.submit "Sign up", class: "form-control btn btn-danger"%>
           </div>
         <% end %>
+        <%= render "shared/sweet_alerts" %>
         <%= render "devise/shared/links" %>
       </div>
     </div> <!-- end page-content -->
